@@ -20,6 +20,9 @@ spec:
       - name: {{.Values.edgex.app.device.virtual}}
         image: {{.Values.edgex.image.device.virtual.repository}}:{{.Values.edgex.image.device.virtual.tag}}
         imagePullPolicy: {{.Values.edgex.image.device.virtual.pullPolicy}}
+        volumeMounts:
+          - name: config
+            mountPath: /res
         ports:
         - containerPort: 59900
         env:
@@ -47,4 +50,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.device.virtual}}
       restartPolicy: Always
+    volumes:
+      - name: config
+        configMap:
+          name: {{.Values.edgex.app.device.virtual}}
 status: {}

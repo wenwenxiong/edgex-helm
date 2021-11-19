@@ -20,6 +20,9 @@ spec:
       - name: {{.Values.edgex.app.support.notifications}}
         image: {{.Values.edgex.image.support.notifications.repository}}:{{.Values.edgex.image.support.notifications.tag}}
         imagePullPolicy: {{.Values.edgex.image.support.notifications.pullPolicy}}
+        volumeMounts:
+          - name: config
+            mountPath: /res
         ports:
         - containerPort: 59860
         env:
@@ -55,4 +58,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.support.notifications}}
       restartPolicy: Always
+    volumes:
+      - name: config
+        configMap:
+          name: {{.Values.edgex.app.support.notifications}}
 status: {}

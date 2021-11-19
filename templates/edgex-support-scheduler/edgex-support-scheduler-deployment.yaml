@@ -20,6 +20,9 @@ spec:
       - name: {{.Values.edgex.app.support.scheduler}}
         image: {{.Values.edgex.image.support.scheduler.repository}}:{{.Values.edgex.image.support.scheduler.tag}}
         imagePullPolicy: {{.Values.edgex.image.support.scheduler.pullPolicy}}
+        volumeMounts:
+          - name: config
+            mountPath: /res
         ports:
         - containerPort: 59861
         envFrom:
@@ -59,4 +62,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.support.scheduler}}
       restartPolicy: Always
+    volumes:
+      - name: config
+        configMap:
+          name: {{.Values.edgex.app.support.scheduler}}
 status: {}

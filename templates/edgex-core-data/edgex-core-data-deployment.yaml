@@ -20,6 +20,9 @@ spec:
       - name: {{.Values.edgex.app.core.data}}
         image: {{.Values.edgex.image.core.data.repository}}:{{.Values.edgex.image.core.data.tag}}
         imagePullPolicy: {{.Values.edgex.image.core.data.pullPolicy}}
+        volumeMounts:
+          - name: config
+            mountPath: /res
         ports:
         - containerPort: 59880
         - containerPort: 5563
@@ -56,4 +59,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.core.data}}
       restartPolicy: Always
+    volumes:
+      - name: config
+        configMap:
+          name: {{.Values.edgex.app.core.data}}
 status: {}

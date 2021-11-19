@@ -20,6 +20,9 @@ spec:
       - name: {{.Values.edgex.app.device.rest}}
         image: {{.Values.edgex.image.device.rest.repository}}:{{.Values.edgex.image.device.rest.tag}}
         imagePullPolicy: {{.Values.edgex.image.device.rest.pullPolicy}}
+        volumeMounts:
+          - name: config
+            mountPath: /res
         ports:
         - containerPort: 59986
         env:
@@ -47,4 +50,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.device.rest}}
       restartPolicy: Always
+    volumes:
+      - name: config
+        configMap:
+          name: {{.Values.edgex.app.device.rest}}
 status: {}
