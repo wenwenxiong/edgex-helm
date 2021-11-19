@@ -6,9 +6,9 @@ metadata:
   name: {{.Values.edgex.app.support.notifications}}
 spec:
   ports:
-  - name: "48060"
-    port: 48060
-    targetPort: 48060
+  - name: "59860"
+    port: 59860
+    targetPort: 59860
     nodePort: {{.Values.expose.nodePort.support.notifications}}
   selector:
     org.edgexfoundry.service: {{.Values.edgex.app.support.notifications}}

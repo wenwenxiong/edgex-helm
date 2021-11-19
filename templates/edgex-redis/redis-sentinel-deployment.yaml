@@ -1,9 +1,16 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: "redis-ha"
+    name: {{.Values.edgex.app.redis}}-sentinel
   name: {{.Values.edgex.app.redis}}-sentinel
 spec:
   replicas: {{.Values.edgex.replicas.redis}}
+  selector:
+    matchLabels:
+      app: "redis-ha"
+      name: {{.Values.edgex.app.redis}}-sentinel
   template:
     metadata:
       labels:

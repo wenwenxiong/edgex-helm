@@ -21,29 +21,29 @@ spec:
         image: {{.Values.edgex.image.system.repository}}:{{.Values.edgex.image.system.tag}}
         imagePullPolicy: {{.Values.edgex.image.system.pullPolicy}}
         ports:
-        - containerPort: 48090
+        - containerPort: 58890
         envFrom:
         - configMapRef:
             name: edgex-common-variables
         env:
-        - name: Service_Host
+        - name: SERVICE_HOST
           value: {{.Values.edgex.app.system}}
-        - name: ExecutorPath
+        - name: EXECUTORPATH
           value: "/sys-mgmt-executor"
-        - name: MetricsMechanism
+        - name: METRICSMECHANISM
           value: "executor"
         readinessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48090
+            path: /api/v2/ping
+            port: 58890
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48090
+            path: /api/v2/ping
+            port: 58890
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1

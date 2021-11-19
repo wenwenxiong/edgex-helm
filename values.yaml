@@ -52,59 +52,59 @@ edgex:
   image:
     core:
       command:
-        repository: edgexfoundry/docker-core-command-go
-        tag: 1.2.1
+        repository: docker.io:8443/edgexfoundry/core-command
+        tag: 2.0.0
         pullPolicy: IfNotPresent
       data:
-        repository: edgexfoundry/docker-core-data-go
-        tag: 1.2.1
+        repository: docker.io:8443/edgexfoundry/core-data
+        tag: 2.0.0
         pullPolicy: IfNotPresent
       metadata:
-        repository: edgexfoundry/docker-core-metadata-go
-        tag: 1.2.1
+        repository: docker.io:8443/edgexfoundry/core-metadata
+        tag: 2.0.0
         pullPolicy: IfNotPresent
       consul:
-        repository: edgexfoundry/docker-edgex-consul
-        tag: 1.2.0
+        repository: docker.io:8443/consul
+        tag: 1.9.5
         pullPolicy: IfNotPresent
     support:
       notifications:
-        repository: edgexfoundry/docker-support-notifications-go
-        tag: 1.2.1
+        repository: docker.io:8443/edgexfoundry/support-notifications
+        tag: 2.0.0
         pullPolicy: IfNotPresent
       rulesengine:
-        repository: emqx/kuiper
-        tag: 0.4.2-alpine
+        repository: docker.io:8443/lfedge/ekuiper
+        tag: 1.3.0-alpine
         pullPolicy: IfNotPresent
       scheduler:
-        repository: edgexfoundry/docker-support-scheduler-go
-        tag: 1.2.1
+        repository: docker.io:8443/edgexfoundry/support-scheduler
+        tag: 2.0.0
         pullPolicy: IfNotPresent
     appservice:
       rules:
-        repository: edgexfoundry/docker-app-service-configurable
-        tag: 1.2.0
+        repository: docker.io:8443/edgexfoundry/app-service-configurable
+        tag: 2.0.1
         pullPolicy: IfNotPresent
     device:
       virtual:
-        repository: edgexfoundry/docker-device-virtual-go
-        tag: 1.2.1
+        repository: docker.io:8443/edgexfoundry/device-virtual
+        tag: 2.0.0
         pullPolicy: IfNotPresent
       rest:
-        repository: edgexfoundry/docker-device-rest-go
-        tag: 1.1.1
+        repository: docker.io:8443/edgexfoundry/device-rest
+        tag: 2.0.0
         pullPolicy: IfNotPresent
     ui:
-      repository: edgexfoundry/docker-edgex-ui-go
-      tag: 1.2.1
+      repository: docker.io:8443/edgexfoundry/edgex-ui
+      tag: 2.0.0
       pullPolicy: IfNotPresent
     system:
-      repository: edgexfoundry/docker-sys-mgmt-agent-go
-      tag: 1.2.1
+      repository: docker.io:8443/edgexfoundry/sys-mgmt-agent
+      tag: 2.0.0
       pullPolicy: IfNotPresent
     redis:
-      repository: quay.io/smile/redis
-      tag: 4.0.6r2
+      repository: docker.io:8443/redis
+      tag: 6.2.4-alpine
       pullPolicy: IfNotPresent
 
   # replicas defines the number of replicas in a Deployment for the respective application

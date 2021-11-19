@@ -6,9 +6,9 @@ metadata:
   name: {{.Values.edgex.app.device.rest}}
 spec:
   ports:
-  - name: "49986"
-    port: 49986
-    targetPort: 49986
+  - name: "59986"
+    port: 59986
+    targetPort: 59986
     nodePort: {{.Values.expose.nodePort.device.rest}}
   selector:
     org.edgexfoundry.service: {{.Values.edgex.app.device.rest}}

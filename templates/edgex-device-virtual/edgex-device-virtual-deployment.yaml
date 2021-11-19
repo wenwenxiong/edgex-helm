@@ -21,20 +21,20 @@ spec:
         image: {{.Values.edgex.image.device.virtual.repository}}:{{.Values.edgex.image.device.virtual.tag}}
         imagePullPolicy: {{.Values.edgex.image.device.virtual.pullPolicy}}
         ports:
-        - containerPort: 49990
+        - containerPort: 59900
         env:
-        - name: Service_Host
+        - name: SERVICE_HOST
           value: {{.Values.edgex.app.device.virtual}}
         envFrom:
         - configMapRef:
             name: edgex-common-variables
         livenessProbe:
           tcpSocket:
-            port: 49990
+            port: 59900
           periodSeconds: 5
         readinessProbe:
           tcpSocket:
-            port: 49990
+            port: 59900
           periodSeconds: 5
       {{- if .Values.edgex.resources.device.virtual.enforceLimits }}
         resources:

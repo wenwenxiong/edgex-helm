@@ -20,33 +20,33 @@ spec:
         image: {{.Values.edgex.image.appservice.rules.repository}}:{{.Values.edgex.image.appservice.rules.tag}}
         imagePullPolicy: {{.Values.edgex.image.appservice.rules.pullPolicy}}
         ports:
-        - containerPort: 48100
+        - containerPort: 59701
         envFrom:
         - configMapRef:
             name: edgex-common-variables
         env:
-        - name: edgex_profile
+        - name: EDGEX_PROFILE
           value: "rules-engine"
-        - name: Service_Host
+        - name: SERVICE_HOST
           value: {{.Values.edgex.app.appservice.rules}}
-        - name: Service_Port
-          value: "48100"
-        - name: MessageBus_SubscribeHost_Host
-          value: {{.Values.edgex.app.core.data}}
-        - name: Binding_PublishTopic
-          value: "events"
+        - name: SERVICE_PORT
+          value: "59701"
+        - name: TRIGGER_EDGEXMESSAGEBUS_PUBLISHHOST_HOST
+          value: {{.Values.edgex.app.redis}}
+        - name: TRIGGER_EDGEXMESSAGEBUS_SUBSCRIBEHOST_HOST
+          value: {{.Values.edgex.app.redis}}
         readinessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48100
+            path: /api/v2/ping
+            port: 59701
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48100
+            path: /api/v2/ping
+            port: 59701
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1

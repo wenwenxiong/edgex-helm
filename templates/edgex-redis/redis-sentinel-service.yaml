@@ -9,7 +9,8 @@ spec:
     - port: 26379
       targetPort: 26379
   selector:
-    redis-role: "sentinel"
+    app: "redis-ha"
+    name: {{.Values.edgex.app.redis}}-sentinel
   type: {{.Values.expose.type}}
 status:
   loadBalancer: {}

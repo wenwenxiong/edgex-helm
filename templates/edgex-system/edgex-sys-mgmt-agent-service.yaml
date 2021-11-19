@@ -6,9 +6,9 @@ metadata:
   name: {{.Values.edgex.app.system}}
 spec:
   ports:
-  - name: "48090"
-    port: 48090
-    targetPort: 48090
+  - name: "58890"
+    port: 58890
+    targetPort: 58890
     nodePort: {{.Values.expose.nodePort.system}}
   selector:
     org.edgexfoundry.service: {{.Values.edgex.app.system}}

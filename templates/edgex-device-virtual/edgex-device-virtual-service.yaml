@@ -6,9 +6,9 @@ metadata:
   name: {{.Values.edgex.app.device.virtual}}
 spec:
   ports:
-  - name: "49990"
-    port: 49990
-    targetPort: 49990
+  - name: "59900"
+    port: 59900
+    targetPort: 59900
     nodePort: {{.Values.expose.nodePort.device.virtual}}
   selector:
     org.edgexfoundry.service: {{.Values.edgex.app.device.virtual}}

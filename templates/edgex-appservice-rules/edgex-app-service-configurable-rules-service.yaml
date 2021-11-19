@@ -6,9 +6,10 @@ metadata:
   name: {{.Values.edgex.app.appservice.rules}}
 spec:
   ports:
-  - name: "48100"
-    port: 48100
-    targetPort: 48100
+  - name: "59701"
+    port: 59701
+    targetPort: 59701
+    nodePort: {{.Values.expose.nodePort.appservice.rules}}
   selector:
     org.edgexfoundry.service: {{.Values.edgex.app.appservice.rules}}
   type: {{.Values.expose.type}}

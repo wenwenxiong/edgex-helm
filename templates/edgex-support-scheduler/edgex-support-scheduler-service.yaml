@@ -6,9 +6,9 @@ metadata:
   name: {{.Values.edgex.app.support.scheduler}}
 spec:
   ports:
-  - name: "48085"
-    port: 48085
-    targetPort: 48085
+  - name: "59861"
+    port: 59861
+    targetPort: 59861
     nodePort: {{.Values.expose.nodePort.support.scheduler}}
   selector:
     org.edgexfoundry.service: {{.Values.edgex.app.support.scheduler}}

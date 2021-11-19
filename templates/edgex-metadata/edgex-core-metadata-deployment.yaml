@@ -21,27 +21,27 @@ spec:
         image: {{.Values.edgex.image.core.metadata.repository}}:{{.Values.edgex.image.core.metadata.tag}}
         imagePullPolicy: {{.Values.edgex.image.core.metadata.pullPolicy}}
         ports:
-        - containerPort: 48081
+        - containerPort: 59881
         envFrom:
         - configMapRef:
             name: edgex-common-variables
         env:
-        - name: Service_Host
+        - name: SERVICE_HOST
           value: {{.Values.edgex.app.core.metadata}}
-        - name: Notifications_Sender
+        - name: NOTIFICATIONS_SENDER
           value: {{.Values.edgex.app.core.metadata}}
         readinessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48081
+            path: /api/v2/ping
+            port: 59881
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48081
+            path: /api/v2/ping
+            port: 59881
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1

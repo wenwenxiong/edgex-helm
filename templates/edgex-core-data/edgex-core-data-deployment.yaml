@@ -21,26 +21,26 @@ spec:
         image: {{.Values.edgex.image.core.data.repository}}:{{.Values.edgex.image.core.data.tag}}
         imagePullPolicy: {{.Values.edgex.image.core.data.pullPolicy}}
         ports:
-        - containerPort: 48080
+        - containerPort: 59880
         - containerPort: 5563
         env:
-        - name: Service_Host
+        - name: SERVICE_HOST
           value: {{.Values.edgex.app.core.data}}
         envFrom:
         - configMapRef:
             name: edgex-common-variables
         readinessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48080
+            path: /api/v2/ping
+            port: 59880
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48080
+            path: /api/v2/ping
+            port: 59880
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1

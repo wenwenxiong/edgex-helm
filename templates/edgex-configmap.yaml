@@ -4,14 +4,11 @@ metadata:
   name: edgex-common-variables
 data:
   EDGEX_SECURITY_SECRET_STORE: "false"
-  edgex_registry: consul://{{.Values.edgex.app.core.consul}}:8500
-  Registry_Host: {{.Values.edgex.app.core.consul}}
-  Clients_CoreData_Host: {{.Values.edgex.app.core.data}}
-  Clients_Notifications_Host: {{.Values.edgex.app.support.notifications}}
-  Clients_Metadata_Host: {{.Values.edgex.app.core.metadata}}
-  Clients_Command_Host: {{.Values.edgex.app.core.command}}
-  Clients_Scheduler_Host: {{.Values.edgex.app.support.scheduler}}
-  Clients_RulesEngine_Host: {{.Values.edgex.app.support.rulesengine}}
-  Clients_VirtualDevice_Host: {{.Values.edgex.app.device.virtual}}
-  Databases_Primary_Host: {{.Values.edgex.app.redis}}
-  Logging_EnableRemote: "false"
+  REGISTRY_HOST: {{.Values.edgex.app.core.consul}}
+  CLIENTS_CORE_COMMAND_HOST: {{.Values.edgex.app.core.command}}
+  CLIENTS_CORE_DATA_HOST: {{.Values.edgex.app.core.data}}
+  CLIENTS_CORE_METADATA_HOST: {{.Values.edgex.app.core.metadata}}
+  CLIENTS_SUPPORT_NOTIFICATIONS_HOST: {{.Values.edgex.app.support.notifications}}
+  CLIENTS_SUPPORT_SCHEDULER_HOST: {{.Values.edgex.app.support.scheduler}}
+  DATABASES_PRIMARY_HOST: {{.Values.edgex.app.redis}}
+  MESSAGEQUEUE_HOST: {{.Values.edgex.app.redis}}

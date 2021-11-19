@@ -22,6 +22,9 @@ spec:
         imagePullPolicy: {{.Values.edgex.image.ui.pullPolicy}}
         ports:
         - containerPort: 4000
+        envFrom:
+        - configMapRef:
+            name: edgex-common-variables
         env:
         - name: Clients_CoreData_Host
           value: {{.Values.edgex.app.core.data}}
@@ -39,7 +42,7 @@ spec:
           value: {{.Values.edgex.app.core.consul}}
         readinessProbe:
           httpGet:
-            path: /api/v1/ping
+            path: /api/v2/ping
             port: 4000
           initialDelaySeconds: 5
           periodSeconds: 15
@@ -47,7 +50,7 @@ spec:
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /api/v1/ping
+            path: /api/v2/ping
             port: 4000
           initialDelaySeconds: 5
           periodSeconds: 15

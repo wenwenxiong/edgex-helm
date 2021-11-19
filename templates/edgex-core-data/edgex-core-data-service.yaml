@@ -6,9 +6,9 @@ metadata:
   name: {{.Values.edgex.app.core.data}}
 spec:
   ports:
-  - name: "48080"
-    port: 48080
-    targetPort: 48080
+  - name: "59880"
+    port: 59880
+    targetPort: 59880
     nodePort: {{.Values.expose.nodePort.core.data}}
   - name: "5563"
     port: 5563

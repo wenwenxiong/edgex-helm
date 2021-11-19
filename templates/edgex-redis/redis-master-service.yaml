@@ -10,7 +10,6 @@ spec:
   selector:
     app: "redis-ha"
     redis-node: "true"
-    redis-role: "master"
   type: {{.Values.expose.type}}
 status:
   loadBalancer: {}

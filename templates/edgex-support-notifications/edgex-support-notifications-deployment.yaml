@@ -21,25 +21,25 @@ spec:
         image: {{.Values.edgex.image.support.notifications.repository}}:{{.Values.edgex.image.support.notifications.tag}}
         imagePullPolicy: {{.Values.edgex.image.support.notifications.pullPolicy}}
         ports:
-        - containerPort: 48060
+        - containerPort: 59860
         env:
-        - name: Service_Host
+        - name: SERVICE_HOST
           value: {{.Values.edgex.app.support.notifications}}
         envFrom:
         - configMapRef:
             name: edgex-common-variables
         readinessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48060
+            path: /api/v2/ping
+            port: 59860
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48060
+            path: /api/v2/ping
+            port: 59860
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1

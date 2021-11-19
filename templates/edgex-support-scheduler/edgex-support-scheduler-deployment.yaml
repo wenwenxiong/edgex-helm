@@ -21,29 +21,29 @@ spec:
         image: {{.Values.edgex.image.support.scheduler.repository}}:{{.Values.edgex.image.support.scheduler.tag}}
         imagePullPolicy: {{.Values.edgex.image.support.scheduler.pullPolicy}}
         ports:
-        - containerPort: 48085
+        - containerPort: 59861
         envFrom:
         - configMapRef:
             name: edgex-common-variables
         env:
-        - name: Service_Host
+        - name: SERVICE_HOST
           value: {{.Values.edgex.app.support.scheduler}}
-        - name: IntervalActions_ScrubPushed_Host
+        - name: INTERVALACTIONS_SCRUBPUSHED_HOST
           value: {{.Values.edgex.app.core.data}}
-        - name: IntervalActions_ScrubAged_Host
+        - name: INTERVALACTIONS_SCRUBAGED_HOST
           value: {{.Values.edgex.app.core.data}}
         readinessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48085
+            path: /api/v2/ping
+            port: 59861
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /api/v1/ping
-            port: 48085
+            path: /api/v2/ping
+            port: 59861
           initialDelaySeconds: 5
           periodSeconds: 15
           successThreshold: 1
