@@ -62,8 +62,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.system}}
       restartPolicy: Always
-    volumes:
-      - name: config
-        configMap:
-          name: {{.Values.edgex.app.system}}
+      volumes:
+        - name: config
+          configMap:
+            name: {{.Values.edgex.app.system}}
 status: {}

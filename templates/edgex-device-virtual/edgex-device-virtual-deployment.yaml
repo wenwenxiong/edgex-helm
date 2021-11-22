@@ -50,8 +50,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.device.virtual}}
       restartPolicy: Always
-    volumes:
-      - name: config
-        configMap:
-          name: {{.Values.edgex.app.device.virtual}}
+      volumes:
+        - name: config
+          configMap:
+            name: {{.Values.edgex.app.device.virtual}}
 status: {}

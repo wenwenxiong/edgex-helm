@@ -58,8 +58,8 @@ spec:
       {{- end}}
       hostname: {{.Values.edgex.app.support.notifications}}
       restartPolicy: Always
-    volumes:
-      - name: config
-        configMap:
-          name: {{.Values.edgex.app.support.notifications}}
+      volumes:
+        - name: config
+          configMap:
+            name: {{.Values.edgex.app.support.notifications}}
 status: {}
