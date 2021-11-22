@@ -22,7 +22,8 @@ spec:
         imagePullPolicy: {{.Values.edgex.image.device.virtual.pullPolicy}}
         volumeMounts:
           - name: config
-            mountPath: /res
+            mountPath: /res/configuration.toml
+            subPath: configuration.toml
         ports:
         - containerPort: 59900
         env:
