@@ -11,6 +11,7 @@ spec:
   - port: 6379
     protocol: TCP
     targetPort: 6379
+    nodePort: {{.Values.expose.nodePort.redis}}
   selector:
     app: "redis-ha"
     name: "redis-server"

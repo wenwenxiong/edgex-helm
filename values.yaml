@@ -125,7 +125,7 @@ edgex:
       rest: 1
     ui: 1
     system: 1
-    redis: 3
+    redis: 1
 
   # resources defines the cpu and memory limits and requests for the respective application
   resources:
