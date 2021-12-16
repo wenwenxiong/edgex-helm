@@ -255,9 +255,10 @@ serviceAccount:
 
 persistence:
   storageclassname: "-"
+  accessMode: ReadWriteOnce
   size:
-    consus-config: 128Mi
-    consus-data: 128Mi
-    db-data: 512Mi
-    log-data: 128Mi
+    consul_config: 128Mi
+    consul_data: 128Mi
+    db_data: 512Mi
+    log_data: 128Mi
 
