@@ -252,3 +252,12 @@ serviceAccount:
   # The name of the ServiceAccount to use.
   # If not set and create is true, a name is generated using the fullname template
   name:
+
+persistence:
+  storageclassname: "-"
+  size:
+    consus-config: 128Mi
+    consus-data: 128Mi
+    db-data: 512Mi
+    log-data: 128Mi
+

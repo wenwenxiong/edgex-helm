@@ -3,12 +3,16 @@ kind: PersistentVolumeClaim
 metadata:
   name: consul-config
 spec:
-  storageClassName: edgex-consul-config-volume
+{{- if (eq "-" .Values.persistence.storageclassname) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.storageclassname }}"
+{{- end }}
   accessModes:
   - ReadWriteMany
   resources:
     requests:
-      storage: 128Mi
+      storage: "{{ .Values.persistence.size.consul-config }}"
 status: {}
 
 ---
@@ -17,12 +21,16 @@ kind: PersistentVolumeClaim
 metadata:
   name: consul-data
 spec:
-  storageClassName: edgex-consul-data-volume
+{{- if (eq "-" .Values.persistence.storageclassname) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.storageclassname }}"
+{{- end }}
   accessModes:
   - ReadWriteMany
   resources:
     requests:
-      storage: 128Mi
+      storage: "{{ .Values.persistence.size.consul-data }}"
 status: {}
 
 ---
@@ -31,12 +39,16 @@ kind: PersistentVolumeClaim
 metadata:
   name: db-data
 spec:
-  storageClassName: edgex-db-volume
+{{- if (eq "-" .Values.persistence.storageclassname) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.storageclassname }}"
+{{- end }}
   accessModes:
   - ReadWriteMany
   resources:
     requests:
-      storage: 512Mi
+      storage: "{{ .Values.persistence.size.db-data }}"
 status: {}
 
 ---
@@ -45,10 +57,14 @@ kind: PersistentVolumeClaim
 metadata:
   name: log-data
 spec:
-  storageClassName: edgex-support-logging-volume
+{{- if (eq "-" .Values.persistence.storageclassname) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.storageclassname }}"
+{{- end }}        
   accessModes:
   - ReadWriteMany
   resources:
     requests:
-      storage: 128Mi
+      storage: "{{ .Values.persistence.size.log-data }}"
 status: {}
